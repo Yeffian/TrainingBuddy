@@ -18,6 +18,8 @@
             contenteditable>5</span> minute intervals
         </p>      
 
-        <button on:click={debug}>Click me</button>
+        <button class="absolute inset-x-0 bottom-0 align-center h-12 px-8 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg 
+                    focus:shadow-outline hover:bg-indigo-800" 
+                    on:click={debug}>Start</button>
     </div>    
 </main>
