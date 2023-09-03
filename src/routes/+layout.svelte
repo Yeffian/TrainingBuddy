@@ -2,12 +2,12 @@
     import '../app.css'
 </script>
 
-<style lang="postcss">
+<!-- <style lang="postcss">
     :global(html) {
-        background-color: theme(colors.slate.800);
+        background-color: theme(colors.gray.700);
     }
-</style>
+</style> -->
 
-<body class="text-white">
+<body data-class="synthwave">
     <slot />
 </body>
