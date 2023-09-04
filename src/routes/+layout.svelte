@@ -8,6 +8,4 @@
     }
 </style> -->
 
-<body data-class="synthwave">
-    <slot />
-</body>
+<slot />
