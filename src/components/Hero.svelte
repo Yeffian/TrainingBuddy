@@ -9,7 +9,7 @@
 
     $: intervalTime = trainingTime / intervals;
 
-    const debug = () => {
+    const createCards = () => {
         trainingTime = Number(trainingTimeBuff);
         intervals = Number(intervalsBuff);
 
@@ -32,6 +32,6 @@
             <IntervalCard time={intervalTime}/>
         {/each}
         
-        <button class="btn btn-primary w-64 rounded-full space-y-0.5" on:click={debug}>Create</button>
+        <button class="btn btn-primary w-64 rounded-full space-y-0.5" on:click={createCards}>Create</button>
     </div>    
 </main>
