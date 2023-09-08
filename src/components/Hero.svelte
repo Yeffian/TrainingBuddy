@@ -15,7 +15,6 @@
 
         console.log(intervalTime);
     }
-
 </script>
 
 <main>
@@ -32,6 +31,7 @@
             <IntervalCard time={intervalTime}/>
         {/each}
         
+        <br />
         <button class="btn btn-primary w-64 rounded-full space-y-0.5" on:click={createCards}>Create</button>
     </div>    
 </main>

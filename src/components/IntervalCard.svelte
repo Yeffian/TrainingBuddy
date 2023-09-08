@@ -15,7 +15,7 @@
         <div class={cardStyle}>
             <div class="card-body">
               <h2 class="card-title">{time} minutes</h2>
-              <input type="text" placeholder="What are we doing in this time?" class="input input-ghost input-secondary w-full max-w-xs placeholder:italic" />
+              <input type="text" placeholder="What are we doing in this time?" class="input input-ghost input-secondary w-full max-w-xs placeholder:italic placeholder-black focus:placeholder-white" />
               <div class="card-actions justify-end">
                 <button on:click={completeCard} class="btn">Done</button>
               </div>
