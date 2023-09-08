@@ -32,6 +32,10 @@
         {/each}
         
         <br />
-        <button class="btn btn-primary w-64 rounded-full space-y-0.5" on:click={createCards}>Create</button>
+
+        <div class="flex flex-row space-x-5">
+            <button class="btn btn-accent w-64 rounded-full space-y-0.5" on:click={createCards}>Create</button>
+            <button class="btn btn-accent w-64 rounded-full">Start Timer</button>
+        </div>
     </div>    
 </main>
