@@ -1,7 +1,10 @@
 <script lang="ts">
-    import { timerRunning } from "$lib/stores";
+    import { startTimer, timerRunning } from "$lib/stores";
+    import { elapsedTime } from "$lib/stores";
+
+    startTimer();
 </script>
 
 <main>
-    <p>{$timerRunning}</p>
+    <p>{$timerRunning} - {$elapsedTime}</p>
 </main> 
