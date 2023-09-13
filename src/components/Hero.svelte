@@ -1,19 +1,29 @@
 <script lang="ts">
     import IntervalCard from "./IntervalCard.svelte";
+    import { timerRunning } from "$lib/stores";
+    import Timer from "./Timer.svelte";
 
     let trainingTimeBuff: string;
     let intervalsBuff: string;
 
-    let trainingTime: number;
+    let trainingTime: number = 0;
     let intervals: number;
 
+    let minutes = trainingTime;
+    let seconds = 0;
+
     $: intervalTime = trainingTime / intervals;
+    
 
     const createCards = () => {
         trainingTime = Number(trainingTimeBuff);
         intervals = Number(intervalsBuff);
 
         console.log(intervalTime);
+    }
+
+    const changeTimerState = () => {
+        timerRunning.update(wasRunning => !wasRunning);
     }
 </script>
 
@@ -35,7 +45,11 @@
 
         <div class="flex flex-row space-x-5">
             <button class="btn btn-accent w-64 rounded-full space-y-0.5" on:click={createCards}>Create</button>
-            <button class="btn btn-accent w-64 rounded-full">Start Timer</button>
+            <button class="btn btn-accent w-64 rounded-full" on:click={changeTimerState}>{$timerRunning ? "Stop Timer" : "Start Timer"}</button>
+        </div>
+
+        <div class="absolute top-0 right-0 p-2 m-2">
+            <Timer />
         </div>
     </div>    
 </main>
