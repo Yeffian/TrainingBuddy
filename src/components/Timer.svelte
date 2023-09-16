@@ -1,10 +1,9 @@
 <script lang="ts">
-    import { startTimer, timerRunning } from "$lib/stores";
-    import { elapsedTime } from "$lib/stores";
+    import { get } from "svelte/store";
+    import { timerRunning, startTimer, elapsedTime, mins, secs } from "$lib/stores";
 
-    startTimer();
 </script>
 
 <main>
-    <p>{$timerRunning} - {$elapsedTime}</p>
-</main> 
+    <p>{$timerRunning} - {$mins}:{$secs}</p>
+</main>     
