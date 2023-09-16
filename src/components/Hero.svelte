@@ -1,8 +1,8 @@
 <script lang="ts">
     import IntervalCard from "./IntervalCard.svelte";
     import Timer from "./Timer.svelte";
-    import { timerRunning } from "$lib/stores";
-    import { startTimer } from "$lib/stores";
+    import { timerRunning, elapsedTimeAfterStop, startTimer, elapsedTime, startTime } from "$lib/stores";
+    import { get } from "svelte/store";
 
     let trainingTimeBuff: string;
     let intervalsBuff: string;
@@ -23,7 +23,17 @@
         console.log(intervalTime);
     }
 
-    const changeTimerState = () => timerRunning.update(wasRunning => !wasRunning);
+    const changeTimerState = () => {
+        timerRunning.update(wasRunning => !wasRunning);
+        
+        // if paused
+        if (get(timerRunning) == false) {
+            elapsedTimeAfterStop.update(ets => get(elapsedTime));
+        } else {
+            startTime.update(st => Date.now());
+        }
+    }
+
     startTimer();
 </script>
 

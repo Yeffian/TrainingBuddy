@@ -1,13 +1,15 @@
 import { writable, get } from "svelte/store";
 
 export const timerRunning = writable(false);
+export const startTime = writable(0);
 export const elapsedTime = writable(0);
+export const elapsedTimeAfterStop = writable(0);
 
 export const secs = writable(0);
 export const mins = writable(0);
 
 export const startTimer = () => {
-    const startTime = Date.now();
+    startTime.set(Date.now());
 
     elapsedTime.subscribe(et => {
         secs.update(s => Math.floor((et / 1000) % 60));
@@ -17,7 +19,7 @@ export const startTimer = () => {
     setInterval(() => {
         if (get(timerRunning) == true) {
             const endTime = Date.now();
-            elapsedTime.update(et => endTime - startTime);
+            elapsedTime.update(et => endTime - get(startTime) + get(elapsedTimeAfterStop));
         }
     });
 }
