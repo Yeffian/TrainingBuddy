@@ -7,6 +7,8 @@
     let completeCard = () => {
         cardComplete = !cardComplete;
     }
+
+    console.log('new card created');
 </script>
 
 <main>

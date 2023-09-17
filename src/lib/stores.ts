@@ -1,5 +1,7 @@
 import { writable, get } from "svelte/store";
 
+
+// timer stuff
 export const timerRunning = writable(false);
 export const startTime = writable(0);
 export const elapsedTime = writable(0);
@@ -7,6 +9,8 @@ export const elapsedTimeAfterStop = writable(0);
 
 export const secs = writable(0);
 export const mins = writable(0);
+
+// tasks
 
 export const startTimer = () => {
     startTime.set(Date.now());

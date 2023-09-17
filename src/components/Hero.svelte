@@ -1,5 +1,5 @@
 <script lang="ts">
-    import IntervalCard from "./IntervalCard.svelte";
+    import Task from "./Task.svelte";
     import Timer from "./Timer.svelte";
     import { timerRunning, elapsedTimeAfterStop, startTimer, elapsedTime, startTime } from "$lib/stores";
     import { get } from "svelte/store";
@@ -48,7 +48,7 @@
         </p>      
 
         {#each {length: intervals} as _, interval} 
-            <IntervalCard time={intervalTime}/>
+            <Task time={intervalTime}/>
         {/each}
         
         <br />
