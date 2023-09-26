@@ -1,7 +1,7 @@
 <script lang="ts">
     import Task from "./Task.svelte";
     import Timer from "./Timer.svelte";
-    import { timerRunning, elapsedTimeAfterStop, startTimer, elapsedTime, startTime } from "$lib/stores";
+    import { timerRunning, elapsedTimeAfterStop, startTimer, elapsedTime, startTime, minsToEnd, mins } from "$lib/stores";
     import { get } from "svelte/store";
 
     let trainingTimeBuff: string;
@@ -14,16 +14,21 @@
     let seconds = 0;
 
     $: intervalTime = trainingTime / intervals;
-    
+    // $: {
+    //     minsToEnd.update(mte => Number);
+    //     console.log('updated');
+    // }
 
     const createCards = () => {
         trainingTime = Number(trainingTimeBuff);
         intervals = Number(intervalsBuff);
 
+        minsToEnd.update(mte => trainingTime);
         console.log(intervalTime);
     }
 
     const changeTimerState = () => {
+        minsToEnd.update(mte => trainingTime);
         timerRunning.update(wasRunning => !wasRunning);
         
         // if paused
