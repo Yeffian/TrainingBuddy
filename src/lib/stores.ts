@@ -12,7 +12,6 @@ export const secs = writable(0);
 export const mins = writable(0);
 
 // tasks
-
 export const startTimer = () => {
     startTime.set(Date.now());
 
