@@ -1,30 +1,27 @@
 <script lang="ts">
     import Task from "./Task.svelte";
     import Timer from "./Timer.svelte";
-    import { timerRunning, elapsedTimeAfterStop, startTimer, elapsedTime, startTime, minsToEnd, mins } from "$lib/stores";
+    import { timerRunning, elapsedTimeAfterStop, startTimer, elapsedTime, startTime, minsToEnd, intervalTime } from "$lib/stores";
     import { get } from "svelte/store";
 
     let trainingTimeBuff: string;
     let intervalsBuff: string;
 
     let trainingTime: number = 0;
-    let intervals: number;
+    let interval: number;
+
 
     let minutes = trainingTime;
     let seconds = 0;
 
-    $: intervalTime = trainingTime / intervals;
-    // $: {
-    //     minsToEnd.update(mte => Number);
-    //     console.log('updated');
-    // }
+    $: intervalTimeframe = trainingTime / interval;
 
     const createCards = () => {
         trainingTime = Number(trainingTimeBuff);
-        intervals = Number(intervalsBuff);
+        interval = Number(intervalsBuff);
 
+        intervalTime.set(intervalTimeframe);
         minsToEnd.update(mte => trainingTime);
-        console.log(intervalTime);
     }
 
     const changeTimerState = () => {
@@ -52,8 +49,8 @@
             contenteditable>5</span> minute intervals
         </p>      
 
-        {#each {length: intervals} as _, interval} 
-            <Task time={intervalTime}/>
+        {#each {length: interval} as _, interval} 
+            <Task time={intervalTimeframe}/>
         {/each}
         
         <br />

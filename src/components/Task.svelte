@@ -1,14 +1,14 @@
 <script lang="ts">
-    export let time: number;
+  export let time: any;
 
-    let cardComplete: boolean;
-    $: cardStyle = `card w-96 bg-primary text-primary-content ${cardComplete ? "line-through" : " "}`;
+  let cardComplete: boolean;
+  $: cardStyle = `card w-96 bg-primary text-primary-content ${cardComplete ? "line-through" : " "}`;
     
-    let completeCard = () => {
-        cardComplete = !cardComplete;
-    }
+  let completeCard = () => {
+    cardComplete = !cardComplete;
+  }
 
-    console.log('new card created');
+  console.log('new card created');
 </script>
 
 <main>
@@ -17,7 +17,7 @@
         <div class={cardStyle}>
             <div class="card-body">
               <h2 class="card-title">{time} minutes</h2>
-              <!--Calculate if the card is in progress or not -->
+              <!--Calculate if the card is in progress or not-->
               <div class="badge badge-success gap-2">
                 In Progress
               </div>
